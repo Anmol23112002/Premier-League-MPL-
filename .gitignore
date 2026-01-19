@@ -1,0 +1,23 @@
+# --- Dependencies (Too heavy to upload) ---
+node_modules/
+*/node_modules/
+
+# --- Security (NEVER upload these) ---
+.env
+server/.env
+client/.env
+
+# --- Build Outputs (Auto-generated) ---
+dist/
+build/
+client/dist/
+
+# --- OS & Editor Files (Junk) ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
