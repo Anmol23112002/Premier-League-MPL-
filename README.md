@@ -163,9 +163,46 @@ npm run dev   # starts server (5000) and client (5173) together
   - Bid logs
 - Restarting the server or refreshing the browser **does not lose data**.
 - To reset everything, re-run the seed script:
-
 ```bash
 npm run seed
 ```
 
 
+## 🚀 Running as a Desktop App (Windows)
+
+You can create a simple "launcher" file to start the auction system with a single double-click, just like a normal application.
+
+1. Create a new file in the root folder named `Start_MPL_Auction.bat`.
+2. Right-click it and select **Edit** (or open with Notepad).
+3. Paste the following code:
+
+```bat
+@echo off
+TITLE MPL Auction System
+COLOR 0A
+echo =====================================================
+echo    THE LOOZER'S CLUB - MPL AUCTION SYSTEM
+echo =====================================================
+echo.
+echo [1/2] Starting Database and Server...
+echo [2/2] Opening Application Dashboard...
+echo.
+echo *****************************************************
+echo * Admin Panel: http://localhost:5173/admin     *
+echo * Display View: http://localhost:5173          *
+echo *****************************************************
+echo.
+echo Don't close this window while the auction is running!
+echo.
+
+:: Move to current directory
+cd /d "%~dp0"
+
+:: Open the browser automatically after 5 seconds
+timeout /t 5 >nul
+start "" "http://localhost:5173"
+start "" "http://localhost:5173/admin"
+
+:: Run the application
+call npm run dev
+pause
